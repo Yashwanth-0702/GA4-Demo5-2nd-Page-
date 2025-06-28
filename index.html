@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Web Development: Launch Your Tech Career</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #2196F3;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        header h2 {
+            font-size: 1.8em;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        section {
+            background-color: white;
+            padding: 40px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        section h3 {
+            color: #1976D2;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 500;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #FFC107;
+            border-radius: 2px;
+        }
+
+        .why-learn-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .why-learn-list li {
+            background-color: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .why-learn-list li::before {
+            content: '💻';
+            font-size: 1.5em;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .module-card {
+            background-color: #fafafa;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-left: 5px solid #4CAF50;
+        }
+        .module-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .module-card h4 {
+            color: #3F51B5;
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .module-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .module-card ul li {
+            margin-bottom: 8px;
+            padding-left: 28px;
+            position: relative;
+            color: #555;
+        }
+        .module-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #2196F3;
+            font-weight: bold;
+            font-size: 1.2em;
+            top: -2px;
+        }
+
+        .instructor-bio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .instructor-bio img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #FFC107;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .instructor-bio-text h4 {
+            margin: 0;
+            font-size: 2em;
+            color: #333;
+            font-weight: 600;
+        }
+        .instructor-bio-text p {
+            margin: 8px 0 0;
+            color: #666;
+            font-size: 1.1em;
+        }
+        @media (min-width: 768px) {
+            .instructor-bio {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #FF5722;
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 35px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #E64A19;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        .secondary-cta-button {
+            display: inline-block;
+            background-color: #607D8B; /* Grey for a secondary button */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        .secondary-cta-button:hover {
+            background-color: #455A64;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .pricing-card {
+            background-color: #fff;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            flex: 1;
+            min-width: 290px;
+            max-width: 380px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 6px solid #2196F3;
+            position: relative;
+            overflow: hidden;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .pricing-card h4 {
+            color: #2196F3;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .pricing-card .price {
+            font-size: 3.5em;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .pricing-card ul {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .pricing-card ul li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .pricing-card .cta-button {
+            margin-top: 0;
+            padding: 12px 25px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        footer a {
+            color: #FFC107;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #ffe082;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            header h2 {
+                font-size: 1.2em;
+            }
+            section {
+                padding: 30px 15px;
+            }
+            section h3 {
+                font-size: 1.8em;
+            }
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+            .module-card {
+                padding: 20px;
+            }
+            .pricing-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card {
+                width: 90%;
+            }
+            .secondary-cta-button {
+                width: 90%; /* Make button full width on small screens */
+                box-sizing: border-box; /* Include padding in width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Launch Your Tech Career: Master Web Development</h1>
+            <h2>Build Stunning Websites & Dynamic Web Applications</h2>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="why-learn">
+            <h3>Why Learn Web Development Now?</h3>
+            <p>The digital world runs on web technologies. Learning web development opens doors to a vast array of opportunities, from creating your own projects to landing a high-paying job.</p>
+            <ul class="why-learn-list">
+                <li><strong>High Demand, Great Pay:</strong> Web developers are constantly sought after across industries.</li>
+                <li><strong>Creative Freedom:</strong> Build anything you can imagine – personal portfolios, e-commerce stores, social platforms, and more.</li>
+                <li><strong>Flexibility:</strong> Work remotely, freelance, or join a dynamic tech team.</li>
+                <li><strong>Constant Innovation:</strong> The web is always evolving, offering endless learning and growth opportunities.</li>
+            </ul>
+        </section>
+
+        <section id="what-youll-master">
+            <h3>What You'll Master:</h3>
+            <p>Our course is meticulously structured to provide a holistic understanding of modern web development, covering both front-end and back-end technologies.</p>
+            <div class="module-grid">
+                <div class="module-card">
+                    <h4>Module 1: Front-End Fundamentals</h4>
+                    <ul>
+                        <li>HTML5: Structure the web – semantic elements, forms, and accessibility.</li>
+                        <li>CSS3: Style with flair – responsive design (Flexbox, Grid), animations, and transitions.</li>
+                        <li>JavaScript (ES6+): Bring interactivity to life – DOM manipulation, events, and modern syntax.</li>
+                        <li>Responsive Design: Ensure your websites look great on any device.</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <h4>Module 2: Advanced Front-End & Libraries</h4>
+                    <ul>
+                        <li>Introduction to React.js (or another popular framework like Vue.js/Angular): Build powerful, single-page applications.</li>
+                        <li>Component-Based Architecture: Understand how to build modular and reusable UI components.</li>
+                        <li>State Management: Manage complex application data efficiently.</li>
+                        <li>API Integration: Connect your front-end to external data sources.</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <h4>Module 3: Back-End Development</h4>
+                    <ul>
+                        <li>Node.js & Express.js: Build robust server-side applications with JavaScript.</li>
+                        <li>RESTful APIs: Design and implement powerful APIs for data exchange.</li>
+                        <li>Databases (MongoDB/SQL): Store and manage your application's data.</li>
+                        <li>Authentication & Authorization: Secure your applications and user data.</li>
+                    </ul>
+                </div>
+                <div class="module-card">
+                    <h4>Module 4: Deployment, Version Control & Best Practices</h4>
+                    <ul>
+                        <li>Git & GitHub: Collaborate effectively and manage your code versions.</li>
+                        <li>Deployment: Launch your web applications to live servers (e.g., Netlify, Vercel, Heroku).</li>
+                        <li>Web Security Basics: Understand common vulnerabilities and how to protect your apps.</li>
+                        <li>Performance Optimization: Make your websites fast and efficient.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="who-for" class="text-center">
+            <h3>Who is This Course For?</h3>
+            <p>Whether you're a complete beginner or looking to solidify your foundational knowledge, this program is for you:</p>
+            <ul class="why-learn-list">
+                <li><strong>Aspiring Developers:</strong> No prior coding experience? No problem! We start from the basics.</li>
+                <li><strong>Career Changers:</strong> Looking to transition into a rewarding tech role.</li>
+                <li><strong>Entrepreneurs:</strong> Want to build your own startup ideas or personal projects.</li>
+                <li><strong>Designers:</strong> Ready to bring your static designs to life with code.</li>
+            </ul>
+        </section>
+
+        <section id="instructor">
+            <h3 class="text-center">Meet Your Mentor:</h3>
+            <div class="instructor-bio">
+                <img src="https://via.placeholder.com/150/CFD8DC/424242?text=Mentor" alt="Instructor Name">
+                <div class="instructor-bio-text">
+                    <h4>[Instructor Name]</h4>
+                    <p>[Instructor's professional title/company]</p>
+                    <p>With <strong>10+ years of experience</strong> building scalable web applications for leading companies, [He/She] is passionate about empowering the next generation of developers and simplifying complex concepts into actionable knowledge.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="enrollment" class="text-center">
+            <h3>Ready to Code Your Future?</h3>
+            <p>Enroll today and start building the web applications of tomorrow!</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h4>Foundation Pack</h4>
+                    <p class="price">$399</p>
+                    <ul>
+                        <li>✔ All core modules</li>
+                        <li>✔ Self-paced learning</li>
+                        <li>✔ Lifetime access to materials</li>
+                        <li>✔ Project files & starter code</li>
+                    </ul>
+                    <a href="#" class="cta-button">Enroll Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h4>Developer Pro Pack</h4>
+                    <p class="price">$799</p>
+                    <ul>
+                        <li>✔ All Foundation features</li>
+                        <li>✔ Live coding sessions (weekly)</li>
+                        <li>✔ Dedicated Slack community</li>
+                        <li>✔ Code review feedback</li>
+                        <li>✔ Bonus advanced topics</li>
+                    </ul>
+                    <a href="#" class="cta-button">Enroll Now</a>
+                </div>
+                <div class="pricing-card">
+                    <h4>Career Launch Pack</h4>
+                    <p class="price">$1299</p>
+                    <ul>
+                        <li>✔ All Developer Pro features</li>
+                        <li>✔ Personalized mentorship (2 sessions)</li>
+                        <li>✔ Resume review & interview prep</li>
+                        <li>✔ Official certificate of completion</li>
+                        <li>✔ Job placement assistance</li>
+                    </ul>
+                    <a href="#" class="cta-button">Enroll Now</a>
+                </div>
+            </div>
+            <a href="#" class="cta-button">START YOUR WEB DEV JOURNEY - ENROLL NOW</a>
+        </section>
+
+        <section id="other-courses" class="text-center">
+            <h3>Explore Our Other Courses</h3>
+            <p>Interested in data analytics? Check out our Google Analytics 4 (GA4) course to unlock deeper insights into your website performance.</p>
+            <a href="ga4_course_landing.html" class="secondary-cta-button">Explore GA4 Course</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h3>Questions? We're Here to Help!</h3>
+            <p><a href="mailto:info@yourwebdevcourse.com">info@yourwebdevcourse.com</a></p>
+            <p>&copy; 2025 Your Web Dev Course. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
